@@ -27,7 +27,7 @@ jobs:
       - run:
           name: Clone old website
           command: |
-            git clone $GENERATED_SITE_REPO repo
+            git clone "$GENERATED_SITE_REPO" repo
       - run:
           name: Copy newly generated files
           command: |
@@ -36,8 +36,8 @@ jobs:
           name: Set up personal info
           command: |
             cd repo
-            git config user.email $GENERATED_SITE_REPO_EMAIL
-            git config user.name $GENERATED_SITE_REPO_OWNER
+            git config user.email "$GENERATED_SITE_REPO_EMAIL"
+            git config user.name "$GENERATED_SITE_REPO_OWNER"
             cd ..
       - run:
           name: Commit and Push to repository
