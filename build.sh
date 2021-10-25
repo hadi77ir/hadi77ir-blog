@@ -8,4 +8,8 @@ rm -rf ./assets/css/main.css
 rm -rf ./assets/css/persian.css
 ./node_modules/.bin/node-sass ./_sass/main.scss -o ./assets/css/
 ./node_modules/.bin/node-sass ./_sass/persian.scss -o ./assets/css/
+if [ "$BUILD_ENVIRONMENT" == "docker-host" ]; then
 docker run --rm -v "$PWD:/srv/jekyll" --net "host" --volume="$HOME/jekyll-gems:/usr/gem" -it jekyll/builder:4.0 jekyll build
+else
+jekyll build
+fi
