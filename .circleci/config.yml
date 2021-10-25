@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build:
+    working_directory: /srv/jekyll
     docker:
       - image: jekyll/builder:4.0
     steps:
