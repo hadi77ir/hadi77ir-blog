@@ -29,6 +29,9 @@ jobs:
           command: |
             git clone "$GENERATED_SITE_REPO" repo
       - run:
+          name: Clean the repo
+          command: cd repo && git rm -rf .
+      - run:
           name: Copy newly generated files
           command: |
             cp -a ./generated/_site/* repo/
