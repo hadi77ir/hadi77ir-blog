@@ -33,16 +33,16 @@ jobs:
           command: |
             cp -a ./generated/_site/* repo/
       - run:
-          name: Change working directory
-          command: cd repo
-      - run:
           name: Set up personal info
           command: |
+            cd repo
             git config user.email $GENERATED_SITE_REPO_EMAIL
             git config user.name $GENERATED_SITE_REPO_OWNER
+            cd ..
       - run:
           name: Commit and Push to repository
           command: |
+            cd repo
             git add .
             git commit "New changes - Generated at "$(date +%F)
             git push
