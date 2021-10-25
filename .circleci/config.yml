@@ -44,7 +44,7 @@ jobs:
           command: |
             cd repo
             git add .
-            git commit "New changes - Generated at "$(date +%F)
+            git commit -m "New changes - Generated at "$(date +%F)
             git push
 workflows:
   build_and_publish:
