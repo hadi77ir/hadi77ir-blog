@@ -46,6 +46,7 @@ jobs:
           name: Commit and Push to repository
           command: |
             cd repo
+            touch .nojekyll
             git add .
             git commit -m "New changes - Generated at "$(date +%F)
             git push
