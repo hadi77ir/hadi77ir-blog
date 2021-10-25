@@ -1,0 +1,45 @@
+# Site
+name: "محمدهادی حسین‌پور"
+description: "صرفاً نوشته‌های شخصی"
+meta_description: "وبلاگ شخصی محمدهادی حسین‌پور؛ صرفاً نوشته‌های شخصی را اینجا منتشر می‌کنم."
+logo: 'assets/images/avatar.jpg'
+favicon: 'assets/images/avatar.jpg'
+twitter: https://twitter.com/_hadi77ir
+github: https://github.com/hadi77ir
+telegram: https://t.me/hadi77ir_channel
+email: https://forms.gle/AufCXgNGT79fYcE97
+baseurl: 
+url: https://hadi77ir.ir
+exclude: [build.sh, todo, README.md, LICENSE.txt]
+
+# Author
+author:
+  name: hadi77ir
+  display_name: محمدهادی
+  description: "تنها نویسنده این وبلاگ. :)"
+
+# Plugins
+plugins: 
+  - jekyll-paginate
+  - jekyll-archives
+  - jekyll-feed
+  - jekyll-jalali
+
+feed:
+  path: atom.xml
+    
+# Archives
+jekyll-archives:
+  enabled:
+    - tags
+  layout: archive
+  permalinks:
+    category: '/tag/:name/'
+    
+# Pagination 
+paginate: 6
+paginate_path: /page:num/
+    
+# Other
+markdown: kramdown
+highlighter: rouge

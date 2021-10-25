@@ -1,0 +1,35 @@
+// Feather icon font
+
+@include my-font-face('feather', '#{$my-fonts-path}/feather/feather', 400, 'normal', woff2 woff);
+
+
+.feather{
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1; 
+}
+
+[class^="feather-"], [class*=" feather-"] {
+    font-family: 'feather';
+    /* use !important to prevent issues with browser extensions that change fonts */
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin feather-icon($name, $content) {
+    .feather-#{$name}::before{
+        content: unicode-char-content($content);
+    }
+}

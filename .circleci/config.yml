@@ -1,0 +1,52 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.0.2
+    steps:
+      - checkout
+      - run: 
+          name: Install dependencies
+          command: |
+            gem install bundle jekyll
+            bundle install
+      - run: 
+          name: Execute Build script
+          command: |
+            sh build.sh
+      - persist_to_workspace:
+          root: ./
+          paths: _site/*
+  publish:
+    docker:
+      - image: bitnami/git:latest
+    steps:
+      - attach_workspace:
+          at: ./generated
+      - run:
+          name: Clone old website
+          command: |
+            git clone $GENERATED_SITE_REPO repo
+      - run:
+          name: Copy newly generated files
+          command: |
+            cp -a ./generated/_site/* repo/
+      - run:
+          name: Set up personal info
+          command: |
+            git config user.email $GENERATED_SITE_REPO_EMAIL
+            git config user.name $GENERATED_SITE_REPO_OWNER
+      - run:
+          name: Commit and Push to repository
+          command: |
+            cd repo
+            git add .
+            git commit "New changes - Generated at "$(date +%F)
+            git push
+workflows:
+  build_and_publish:
+    jobs:
+      - build
+      - publish:
+          requires:
+            - build

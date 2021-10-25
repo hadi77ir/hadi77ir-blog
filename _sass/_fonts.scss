@@ -1,0 +1,20 @@
+// Font Awesome
+/*
+@import "node_modules/@fortawesome/fontawesome-free/scss/fontawesome";
+$fa-font-path: "../fonts";
+@import "node_modules/@fortawesome/fontawesome-free/scss/regular";
+@import "node_modules/@fortawesome/fontawesome-free/scss/solid";
+@import "node_modules/@fortawesome/fontawesome-free/scss/brands";
+*/
+
+@import "fonts/variables";
+$my-fonts-path: "../fonts";
+@import "fonts/mixins";
+@import "fonts/charter";
+@import "fonts/fell";
+@import "fonts/noe";
+@import "fonts/maratsans";
+@import "fonts/linea";
+@import "fonts/linea-icons";
+@import "fonts/feather";
+@import "fonts/feather-icons";

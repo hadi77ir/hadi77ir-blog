@@ -1,0 +1,13 @@
+---
+title: نوشته‌های منتخب
+layout: plain
+---
+{% assign posts = site.posts | where: 'featured', true %}
+
+<ul class="posts">
+    {% for post in posts %}
+    <li>
+        {% include post.html %}
+    </li>
+    {% endfor %}
+</ul>

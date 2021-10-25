@@ -1,0 +1,214 @@
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "variables";
+@import "persian-fonts";
+$samim-sans-family: "Marat Sans", "Samim", $sans-fallback-family;
+$samim-title-serif-family: "Fell", "Samim Bold", $serif-fallback-family;
+$samim-marketing-serif-family: "Noe Display", "Samim", $serif-fallback-family;
+$samim-content-serif-family: "Charter", "Samim", $serif-fallback-family;
+
+$sahel-sans-family: "Marat Sans", "Sahel", $sans-fallback-family;
+$sahel-title-serif-family: "Fell", "Sahel Bold", $serif-fallback-family;
+$sahel-marketing-serif-family: "Noe Display", "Sahel", $serif-fallback-family;
+$sahel-content-serif-family: "Charter", "Sahel", $serif-fallback-family;
+
+body.persian {
+    direction: rtl;
+    text-align: right;
+    font-family: $samim-sans-family;
+    .linea {
+        &.linea-arrows-next::before {
+            content: unicode-char-content(e03f);
+        }
+        &.linea-arrows-prev::before {
+            content: unicode-char-content(e04b);
+        }
+    }
+    @each $heading in $headings {
+        #{$heading} {
+            font-family: $samim-sans-family;
+        }
+    }
+    header#header {
+        .inner {
+            .site-title {
+                font-family: $sahel-marketing-serif-family;
+
+                img.avatar {
+                    margin-right: 0;
+                    margin-left: 20px;
+                }
+            }
+            .social-media {
+                ul {
+                    li {
+                        &:last-child {
+							margin-left: 0;
+							margin-right: 10px;
+						}
+                    }
+                }
+            }
+        }
+    }
+
+    // slick rtl workaround
+    .slick-track {
+        margin-right: 32px;
+    }
+
+    //#header-wrapper + * {
+    //    padding-top: 0;
+    //}
+
+    section#featured-content {
+        > .inner {
+            .first-card {
+                article.post {
+                    .post-details {
+                        @include media-breakpoint-up(xl) {
+                            padding-left: 0;
+                            padding-right: 5rem;
+                        }
+                    }
+                }
+            }
+            .second-card {
+                @include media-breakpoint-up(md) {
+                    article.post {
+                        .post-image {
+                            margin-right: 0;
+                            margin-left: 24px;
+                        }
+                    }
+                }
+            }
+            .more {
+                text-align: left;
+            }
+        }
+    }
+    section#frontpage-content,
+    section#archive-content,
+    section#featured-content {
+        .section-title {
+            h2 {
+                font-family: $sahel-marketing-serif-family;
+            }
+        }
+    }
+
+    section#frontpage-content,
+    section#archive-content {
+        main#main-content {
+            ul.posts {
+                > li {
+                    article.post {
+                        .post-details {
+                            footer.post-footer {
+                                ul.post-actions {
+                                    text-align: left;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        aside#sidebar {
+            footer#footer {
+                a {
+                    margin-right: 0;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+
+    section#frontpage-content ul.posts > li {
+        article.post {
+            .post-image {
+                margin-left: 0;
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    #post-content,#page-content {
+        article.post {
+            header.post-header {
+                h1.post-title {
+                    font-family: $sahel-title-serif-family;
+                    line-height: 2;
+                }
+                h2.post-description {
+                    font-family: $samim-sans-family;
+                    line-height: 1.5;
+                }
+
+                .post-details {
+                    ul.post-actions {
+                        text-align: left;
+                    }
+                }
+            }
+
+            .post-content p,
+            .post-featured-image {
+                img + em {
+                    font-family: $samim-sans-family;
+                }
+            }
+            .post-content {
+                font-family: $sahel-content-serif-family;
+
+                ol,
+                ul,
+                dl {
+                    margin-left: 0;
+                    margin-right: 1rem;
+                }
+                blockquote {
+                    border-left: 0;
+                    padding-left: 0;
+                    margin-left: 0;
+                    border-right: 0.2rem solid $content-blockquote-border-color;
+                    padding-right: 1rem;
+                    margin-right: -1.2rem;
+                }
+                pre {
+                    text-align: left;
+                    direction: ltr;
+                }
+                code {
+                    direction: ltr;
+                }
+            }
+            footer.post-footer {
+                ul.post-tags {
+                    li {
+                        margin-right: 0;
+                        margin-left: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    // infinite scroll placeholder
+    .loading {
+        .loading-post {
+            direction: rtl;
+            &::before {
+                margin-right: -250%;
+                margin-left: 0;
+            }
+            .loading-post-content {
+                padding-right: 0;
+                padding-left: 19px;
+            }
+        }
+    }
+}

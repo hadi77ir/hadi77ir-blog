@@ -1,0 +1,7 @@
+// Fell font
+
+$fell-weights-map: (
+  400: (normal, italic)
+);
+
+@include my-web-font('Fell', '#{$my-fonts-path}/fell/fell', $fell-weights-map);

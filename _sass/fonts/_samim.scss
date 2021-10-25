@@ -1,0 +1,9 @@
+// Samim font
+
+$samim-weights-map: (
+  400: (normal, italic),
+  700: (normal, italic)
+);
+
+@include my-web-font('Samim', '#{$my-fonts-path}/samim/samim', $samim-weights-map);
+@include my-font-face('Samim Bold', '#{$my-fonts-path}/samim/samim-700', 700, 'normal', woff2 woff);

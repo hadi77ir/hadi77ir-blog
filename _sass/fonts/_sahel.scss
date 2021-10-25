@@ -1,0 +1,9 @@
+// Sahel font
+
+$sahel-weights-map: (
+  400: (normal, italic),
+  700: (normal, italic)
+);
+
+@include my-web-font('Sahel', '#{$my-fonts-path}/sahel/sahel', $sahel-weights-map);
+@include my-font-face('Sahel Bold', '#{$my-fonts-path}/sahel/sahel-700', 700, 'normal', woff2 woff);

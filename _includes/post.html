@@ -1,0 +1,44 @@
+{% capture reading_time %}{% if post.content %}{{ post.content | number_of_words | divided_by:180 | plus:1 }} دقیقه{% endif %}{% endcapture %}
+
+<article class="post">
+    <div class="post-image">
+        <a href="{{ post.url | absolute_url }}" title="{{ post.title }}">
+            {% if post.image %}
+            <img src="{{ post.image }}" alt="{{ post.image_alt }}" />
+            {% else %}
+            <img src="{{ site.baseurl }}/assets/images/post-image.jpg" alt="{{ post.title }}" />
+            {% endif %}
+        </a>
+    </div>
+    <div class="post-details">
+        <div class="post-content">
+            <h3 class="post-title"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h3>
+            <div class="post-description">
+                {% if post.description %}
+                <p>{{ post.description }}</p>
+                {% else %}
+                {{ post.excerpt }}
+                {% endif %}
+            </div>
+        </div>
+        <footer class="post-footer">
+            <div class="post-meta">
+                <span class="u-noWrap" data-tooltip="{%if post.date_modified %}به‌روزشده در {{ post.date_modified | jdate: '%d %b %Y' }}{% endif %}">
+                    {% if post.date %}
+                    <time class="u-inlineBlock u-lineHeightBase">{{ post.date | jdate: '%d %b %Y' }}</time>
+                    <span class="middotDivider"></span>
+                    {% endif %}
+                    <span class="readingTime" title="{{ reading_time }}"></span>
+                </span>
+            </div>
+            <ul class="post-actions">
+                <li>
+                    <a href="{{ post.url | absolute_url }}"><i class="linea linea-basic-link" aria-label="پیوند یکتا"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.addtoany.com/share"><i class="linea linea-basic-share" aria-label="به‌اشتراک‌گذاری"></i></a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</article>

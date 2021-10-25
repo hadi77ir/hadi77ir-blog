@@ -1,0 +1,73 @@
+---
+layout: default
+archive: false
+post_class: post-template
+---
+{% capture reading_time %}{% if content %}{{ content | number_of_words | divided_by:180 | plus:1 }} دقیقه{% endif %}{% endcapture %}
+<article class="post single">
+    <header class="post-header">
+        <h1 class="post-title">{{ page.title }}</h1>
+        {% if page.description %}
+        <h2 class="post-description">{{ page.description }}</h2>
+        {% endif %}
+        <div class="post-details">
+            <div class="post-meta">
+                <span class="u-noWrap" data-tooltip="{%if page.date_modified %}به‌روزشده در {{ page.date_modified | jdate: '%d %b %Y' }}{% endif %}">
+                    {% if page.date %}
+                    <time class="u-inlineBlock u-lineHeightBase">{{ page.date | jdate: '%d %b %Y' }}</time>
+                    <span class="middotDivider"></span>
+                    {% endif %}
+                    <span class="readingTime" title="{{ reading_time }}"></span>
+                </span>
+            </div>
+            <ul class="post-actions">
+                <li>
+                    <a href="{{ page.url }}"><i class="linea linea-basic-link" aria-label="پیوند یکتا"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.addtoany.com/share"><i class="linea linea-basic-share" aria-label="به‌اشتراک‌گذاری"></i></a>
+                </li>
+            </ul>
+        </div>
+    </header>
+    {% if page.image %}
+    <div class="post-featured-image post-featured-image-fullwidth">
+        <img src="{{ page.image }}" alt="{{ page.image_alt }}" />
+        {% if page.image_alt %}
+        <em>{{ page.image_alt }}</em>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+
+    <footer class="post-footer">
+        <div class="post-meta">
+            <ul class="post-tags">
+                {% if post %}
+                {% assign tags = post.tags %}
+                {% else %}
+                {% assign tags = page.tags %}
+                {% endif %}
+                {% for tag in tags %}
+                <li><a href="{{site.baseurl}}/tag/{{tag}}/">{{tag}}</a></li>
+                {% endfor %}
+            </ul>
+            <ul class="post-actions">
+                <li>
+                    <a href="{{ page.url }}"><i class="linea linea-basic-link" aria-label="پیوند یکتا"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.addtoany.com/share"><i class="linea linea-basic-share" aria-label="به‌اشتراک‌گذاری"></i></a>
+                </li>
+            </ul>
+        </div>
+        {% if page.responses_url %}
+        <div class="mb-2">
+            <a href="{{ page.responses_url }}" class="btn btn-accent btn-full-width">مشاهده پاسخ‌ها</a>
+        </div>
+        {% endif %}
+    </footer>
+</article>

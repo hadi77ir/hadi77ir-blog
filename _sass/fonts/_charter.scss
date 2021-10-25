@@ -1,0 +1,8 @@
+// Charter font
+
+$charter-weights-map: (
+  400: (normal, italic),
+  700: (normal, italic)
+);
+
+@include my-web-font('Charter', '#{$my-fonts-path}/charter/charter', $charter-weights-map);

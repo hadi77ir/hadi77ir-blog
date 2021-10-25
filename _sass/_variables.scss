@@ -1,0 +1,79 @@
+// Bootstrap config
+$container-max-widths: (
+    sm: 95%,
+    md: 95%,
+    lg: 960px,
+    xl: 1140px
+);
+
+$headings: [h1 h2 h3 h4 h5 h6];
+
+// Font Families
+$serif-fallback-family: Georgia, Cambria, "Times New Roman", Times, serif;
+$sans-fallback-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+
+$fell-family: "Fell", $serif-fallback-family;
+$marat-sans-family: "Marat Sans", $sans-fallback-family;
+$noe-display-family: "Noe Display", $serif-fallback-family;
+$charter-family: "Charter", $serif-fallback-family;
+
+// Colors
+$bg: #ffffff;
+
+$text-color: #777777;
+$link-color: #2e2e2e;
+
+$header-background: #fff;
+$header-border-bottom-color: #f2f2f2;
+$header-title-color: #2e2e2e;
+$header-link-color: #737373;
+$header-link-hover-color: #2e2e2e;
+$header-active-link-color: #2e2e2e;
+$header-button-color: #757575;
+$header-button-color-disabled: #dfdfdf;
+$footer-link-color: #808080;
+$accent-color: #22aa9c;
+$separator-color: #d9d9d9;
+$post-separator-color: #ebebeb;
+$social-link-color: #999999;
+$social-link-hover-color: #777777;
+
+$content-text-color: #2e2e2e;
+$content-heading-color: #282828;
+$content-blockquote-border-color: #282828;
+$content-heading-light-color: #777777;
+$content-figure-caption-color: #777777;
+$content-tag-bg: #eeeeee;
+$content-tag-color: #717171;
+$embed-code-color: $content-text-color;
+$embed-code-bg: #f1f1f1;
+
+// Colors - Night mode
+$night-bg: #122131;
+
+$night-text-color: #bbbbbb;
+$night-link-color: #dfdfdf;
+
+$night-header-background: $night-bg;
+$night-header-border-bottom-color: #2e455f;
+$night-header-title-color: #efefef;
+$night-header-link-color: #eeeeee;
+$night-header-link-hover-color: #fefefe;
+$night-header-active-link-color: #fefefe;
+$night-header-button-color: #fefefe;
+$night-header-button-color-disabled: #37485a;
+$night-separator-color: #1d3653;
+$night-post-separator-color: #1d3653;
+$night-social-link-color: #eeeeee;
+$night-social-link-hover-color: #f8f8f8;
+$night-footer-link-color: #f0f0f0;
+
+$night-content-text-color: #efefef;
+$night-content-heading-color: #efefef;
+$night-content-blockquote-border-color: #efefef;
+$night-content-heading-light-color: #bbbbbb;
+$night-content-figure-caption-color: #bbbbbb;
+$night-content-tag-color: #eeeeee;
+$night-content-tag-bg: #2f455e;
+$night-embed-code-color: #d0d0d0;
+$night-embed-code-bg: #27303a;

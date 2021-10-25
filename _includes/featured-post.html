@@ -1,0 +1,26 @@
+{% capture reading_time %}{% if post.content %}{{ post.content | number_of_words | divided_by:180 | plus:1 }} دقیقه{% endif %}{% endcapture %}
+
+<article class="post featured-post">
+    <div class="post-image">
+        <a href="{{ post.url | absolute_url }}"><img src="{{ post.image }}" /></a>
+    </div>
+    <div class="post-details">
+        <div class="post-content">
+            <h3 class="post-title"><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h3>
+            <div class="post-description">
+                {% if post.description %}
+                <p>{{ post.description }}</p>
+                {% endif %}
+            </div>
+        </div>
+        <footer class="post-meta">
+            <span class="u-noWrap" data-tooltip="{%if post.date_modified %}به‌روزشده در {{ post.date_modified | jdate: '%d %b %Y' }}{% endif %}">
+                {% if post.date %}
+                <time class="u-inlineBlock u-lineHeightBase">{{ post.date | jdate: "%d %b %Y" }}</time>
+                <span class="middotDivider"></span>
+                {% endif %}
+                <span class="readingTime" title="{{ reading_time }}"></span>
+            </span>
+        </footer>
+    </div>
+</article>

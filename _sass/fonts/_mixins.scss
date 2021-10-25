@@ -1,0 +1,46 @@
+@use "sass:map";
+
+@mixin my-font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf, $display: null) {
+	$src: null;
+
+	$extmods: (
+		eot: "?"
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+		@if($display != null){
+			font-display: $display;
+		}
+	}
+}
+
+@mixin my-web-font($name, $path, $weights, $exts: woff2 woff){
+    @each $weight, $styles in $weights {
+        @each $style in $styles {
+            $_path: '#{$path}-#{$weight}-#{$style}';
+            @if $style == "normal" {
+                $_path: '#{$path}-#{$weight}';
+            }
+            @include my-font-face($name, $_path, $weight, $style, $exts);
+        }
+    }
+}
+
+@function unicode-char-content($content) {
+    @return unquote("\"\\#{ $content }\"");
+}

@@ -1,0 +1,15 @@
+// Marat Sans font
+
+$marat-sans-weights-map: (
+  100: (normal, italic),
+  200: (normal, italic),
+  300: (normal, italic),
+  400: (normal, italic),
+  500: (normal, italic),
+  600: (normal, italic),
+  700: (normal, italic),
+  800: (normal, italic),
+  900: (normal, italic)
+);
+
+@include my-web-font('Marat Sans', '#{$my-fonts-path}/marat-sans/marat-sans', $marat-sans-weights-map);
