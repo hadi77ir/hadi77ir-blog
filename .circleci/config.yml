@@ -1,14 +1,14 @@
 version: 2.1
 jobs:
-  build:
+  jekyll_build:
     docker:
-      - image: cimg/ruby:3.0.2
+      - image: jekyll/builder:4.0
     steps:
       - checkout
       - run: 
           name: Install dependencies
           command: |
-            gem install bundle jekyll
+            apk add --update nodejs npm
             bundle install
       - run: 
           name: Execute Build script
