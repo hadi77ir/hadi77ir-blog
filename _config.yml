@@ -9,7 +9,7 @@ github: https://github.com/hadi77ir
 telegram: https://t.me/hadi77ir_channel
 email: https://forms.gle/AufCXgNGT79fYcE97
 baseurl: 
-url: https://hadi77ir.ir
+url: https://hadi77ir.github.io
 exclude: [build.sh, todo, README.md, LICENSE.txt]
 
 # Author
